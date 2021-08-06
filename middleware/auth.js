@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
-const key = "MYSECRETISTHATILOVENYASH";
+const dotenv = require("dotenv");
+dotenv.config()
+const key = process.env.SECRET;
 function auth(req, res,next){
     try{
      const token =req.cookies.token;

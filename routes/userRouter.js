@@ -3,10 +3,11 @@ const User = require("../models/userModel")
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const key = config.get('SECRET');
+const key = process.env.SECRET;
 const jwtDecode = require('jwt-decode');
 const nodemailer=require('nodemailer');
-
+const dotenv = require("dotenv");
+dotenv.config()
 let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -14,8 +15,8 @@ let transporter = nodemailer.createTransport({
     service : 'Gmail',
 
     auth: {
-      user: 'ohiozeomiunu@gmail.com',
-      pass: 'heatbake',
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
     }
 });
 
