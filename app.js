@@ -20,7 +20,7 @@ server.listen(port,()=>console.log(`Voting system server running on port ${port}
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin:[process.env.ORIGIN],
+    origin:[`https://voting-be.herokuapp.com`],
     credentials:true,
 }));
 app.use("/auth", require("./routes/userRouter"));
