@@ -20,7 +20,7 @@ server.listen(port,()=>console.log(`Voting system server running on port ${port}
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin:[`https://voting-be.herokuapp.com`],
+    origin:[`https://voteasy.netlify.app`],
     credentials:true,
 }));
 app.use("/auth", require("./routes/userRouter"));
