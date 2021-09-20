@@ -20,7 +20,7 @@ server.listen(port,()=>console.log(`Voting system server running on port ${port}
 app.use(express.json());
 app.use(cookieParser());
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://voteasy.netlify.app');
     res.setHeader('Access-Control-Request-Method', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
