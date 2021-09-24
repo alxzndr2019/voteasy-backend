@@ -34,7 +34,7 @@ app.use((req, res, next) => {
     }
   });
 app.use(cors({
-    origin:[`https://voteasy.netlify.app`,`https://voteasy.netlify.app/register`,
+    origin:[`https://voteasy.netlify.app`,
 ],
     credentials:true,
 }));
