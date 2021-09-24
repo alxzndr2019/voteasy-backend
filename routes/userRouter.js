@@ -200,16 +200,16 @@ const token = jwt.sign({
     otp: existingUser.otp
 },
 key);
-
-// set the token in a HTTP-ONLY cookie
-res.cookie("token", token,{
-    httpOnly: true,
-})
-.send();
-//send cookie as a response
 return res.status(200).json({
     token: token,
   });
+// set the token in a HTTP-ONLY cookie
+// res.cookie("token", token,{
+//     httpOnly: true,
+// })
+// .send();
+//send cookie as a response
+
     }catch(err){
         console.error(err);
         res.status(500).send();
