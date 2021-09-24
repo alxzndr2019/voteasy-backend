@@ -206,7 +206,10 @@ res.cookie("token", token,{
     httpOnly: true,
 })
 .send();
-
+//send cookie as a response
+return res.status(200).json({
+    token: token,
+  });
     }catch(err){
         console.error(err);
         res.status(500).send();
