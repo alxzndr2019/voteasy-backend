@@ -34,8 +34,7 @@ app.use((req, res, next) => {
     }
   });
 app.use(cors({
-    origin:[`https://voteasy.netlify.app`,
-],
+    origin:[`https://voteasy.netlify.app`],
     credentials:true,
 }));
 app.use("/auth", require("./routes/userRouter"));
