@@ -26,7 +26,7 @@ app.use((res,req,next)=>{
         res.header('Access-Control-Allow-Methods','PUT,POST,GET,PATCH,DELETE')
         return res.status(200).json({})
     }
-
+    next();
 });
 app.use(cors({
     origin:[process.env.ORIGIN],
