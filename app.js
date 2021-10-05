@@ -15,7 +15,6 @@ app.get('/', (req,res)=> res.send('Voting app Api is up and running'));
 
 
 server.listen(port,()=>console.log(`Voting system server running on port ${port}`));
-app.use(cookieParser());
 
 app.use(function(req, res, next) {
     // Website you wish to allow to connect
@@ -38,8 +37,11 @@ app.use(function(req, res, next) {
     // Pass to next layer of middleware
     next();
   });
- app.use(express.json());
- 
+
+app.use(cookieParser());
+
+app.use(express.json());
+
 // app.use(cors({
 //     origin:[process.env.ORIGIN],
 //     credentials:true,
