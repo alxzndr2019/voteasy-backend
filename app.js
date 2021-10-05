@@ -28,10 +28,10 @@ app.use((res,req,next)=>{
     }
     next();
 });
-app.use(cors({
-    origin:[process.env.ORIGIN],
-    credentials:true,
-}));
+// app.use(cors({
+//     origin:[process.env.ORIGIN],
+//     credentials:true,
+// }));
 app.use("/auth", require("./routes/userRouter"));
 app.use("/votesessions", require("./routes/votesessionRouter"));
 
