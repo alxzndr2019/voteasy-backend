@@ -7,6 +7,7 @@ const key = process.env.SECRET;
 const jwtDecode = require('jwt-decode');
 const nodemailer=require('nodemailer');
 const dotenv = require("dotenv");
+const cors = require('./cors');
 dotenv.config()
 let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
