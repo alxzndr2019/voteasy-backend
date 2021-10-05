@@ -15,19 +15,28 @@ app.get('/', (req,res)=> res.send('Voting app Api is up and running'));
 
 
 server.listen(port,()=>console.log(`Voting system server running on port ${port}`));
-app.use(express.json());
 app.use(cookieParser());
 
-app.use((res,req,next)=>{
-    res.header('Access-Control-Allow-Origin',process.env.ORIGIN)
-    res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept");
-
-    if (req.method === 'OPTIONS'){
-        res.header('Access-Control-Allow-Methods','PUT,POST,GET,PATCH,DELETE')
-        return res.status(200).json({})
-    }
+app.use(function(req, res, next) {
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  
+    // Request headers you wish to allow
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization'
+    );
+  
+    //  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  
+    // Pass to next layer of middleware
     next();
-});
+  });
+ app.use(express.json());
+ 
 // app.use(cors({
 //     origin:[process.env.ORIGIN],
 //     credentials:true,
