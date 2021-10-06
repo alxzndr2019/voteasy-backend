@@ -157,6 +157,8 @@ console.log(decoded);
 
 res.cookie("token", token,{
     httpOnly: true,
+    secure: true,
+    sameSite: "none"
 })
 .send();
     }catch(err){
@@ -200,14 +202,15 @@ const token = jwt.sign({
     otp: existingUser.otp
 },
 key);
-return res.status(200).json({
-    token: token,
-  });
-// set the token in a HTTP-ONLY cookie
-// res.cookie("token", token,{
-//     httpOnly: true,
-// })
-// .send();
+
+  
+//set the token in a HTTP-ONLY cookie
+res.cookie("token", token,{
+    httpOnly: true,
+    secure: true,
+    sameSite: "none"
+})
+.send();
 //send cookie as a response
 
     }catch(err){
@@ -221,6 +224,8 @@ router.get("/logout",(req,res)=>{
     .cookie("token","",{
         httpOnly: true,
         expires: new Date(0),
+        secure: true,
+        sameSite: "none"
     })
     res.status(200).json({successMessage:"you have logged out successfully"})
 
